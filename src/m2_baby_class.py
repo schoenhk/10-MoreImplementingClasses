@@ -39,7 +39,7 @@ def main():
 
 
 # ----------------------------------------------------------------------
-# TODO: 2. Implement a class called   Baby   that has a constructor and
+# DONE: 2. Implement a class called   Baby   that has a constructor and
 #   two methods, as described below.  Your finished Baby class should
 #   cause the code above to display the expected output.  Hint: Your
 #   class will need instance variables that you must figure out.
@@ -93,8 +93,25 @@ def main():
 #          """ Brief description of what objects of the class 'are'. """
 #
 ########################################################################
+class Baby(object):
+    def __init__(self, name):
+        self.name = name
+        self.hoursPast = 0
+        print('Hello Baby', name)
 
+    def feed_baby(self):
+        print("Thank you for feeding the baby", self.name, ".")
+        self.hoursPast = 0
 
+    def hour_passes(self):
+        self.hoursPast = self.hoursPast + 1
+        if self.hoursPast <= 1:
+            print("Baby", self.name, "is sleeping")
+        if self.hoursPast == 2:
+            print("Baby", self.name, "is awake. Time for food.")
+        if self.hoursPast >= 3:
+            print("Baby", self.name, "is crying uncontrollably! Feed the Baby!")
+        return self.hoursPast
 # ----------------------------------------------------------------------
 # If this module is running at the top level (as opposed to being
 # imported by another module), then call the 'main' function.
